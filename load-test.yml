@@ -1,0 +1,17 @@
+config:
+  target: 'http://localhost:3000'  # URL de tu API (ajustar según tu entorno)
+  phases:
+    # - duration: 60  # Duración de la prueba en segundos
+      # arrivalRate: 10  # Número de usuarios virtuales que llegan por segundo
+      # name: "Preload"
+    - duration: 60
+      arrivalRate: 400
+      name: "Sustained load"
+  defaults:
+    headers:
+      User-Agent: "Artillery"
+
+scenarios:
+  - flow:
+      - get:
+          url: "/api/products"

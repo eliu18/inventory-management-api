@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "cd904366-3c9f-45a9-a326-99f8e7626580",
+		"name": "Stock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34197894"
+	},
+	"item": [
+		{
+			"name": "Get Inventory By Store",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_API_URL}}/stores/:id/inventory",
+					"host": [
+						"{{BASE_API_URL}}"
+					],
+					"path": [
+						"stores",
+						":id",
+						"inventory"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Low Stock Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_API_URL}}/inventory/alerts",
+					"host": [
+						"{{BASE_API_URL}}"
+					],
+					"path": [
+						"inventory",
+						"alerts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Manage Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\": \"1\",\n    \"targetStoreId\": \"3\",\n    \"quantity\": 10,\n    \"type\": \"IN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_API_URL}}/inventory/transfer",
+					"host": [
+						"{{BASE_API_URL}}"
+					],
+					"path": [
+						"inventory",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
